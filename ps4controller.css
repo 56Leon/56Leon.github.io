@@ -1,23 +1,25 @@
 /* ==========================================================
-   ATZEOHNE_GLATZE - GAMEPADVIEWER FULL CUSTOM PS4 SKIN
-   Rocket League Purple Fennec Style
-   Version: 2.0 CUSTOM
+   ATZEOHNE_GLATZE - GAMEPADVIEWER PS4 EDIT CSS
+   Rocket League Purple Skin - FINAL EDIT VERSION
+   Version: 3.0
 
    WICHTIG:
-   Diese Datei ist für "Custom CSS URL", NICHT für "Edit CSS URL".
+   - Diese Datei ist für "Edit CSS URL"
+   - NICHT für "Custom CSS URL"
+   - Skin muss auf "PlayStation 4" bleiben
+   - URL:
+     https://gamepadviewer.com/?p=1&s=5&nocurve=1&editcss=DEIN_RAW_LINK
 
-   Nutze danach:
-   https://gamepadviewer.com/?p=1&nocurve=1&css=DEIN_RAW_GIST_LINK
-
-   Warum Custom CSS?
-   Wenn Edit CSS bei dir nicht lädt, erzwingen wir hier eine komplette
-   PS4-Skin-CSS über .controller.custom. Die originale Form bleibt trotzdem,
-   weil wir die PS4-Assets von GamepadViewer direkt laden.
+   Warum diese Version:
+   - Keine .custom-Klasse
+   - Keine display:block/display:none Hacks
+   - Keine Disconnected-Overrides
+   - Originale PS4-Form und GamepadViewer-Logik bleiben komplett erhalten
    ========================================================== */
 
 
 /* ==========================================================
-   GLOBAL / OBS CLEANUP
+   OBS / BACKGROUND CLEANUP
    ========================================================== */
 
 html,
@@ -30,317 +32,142 @@ body {
     background: transparent !important;
 }
 
-.navbar,
-.slideout-menu,
-.modal-container,
-.nocon,
-.pselect {
-    display: none !important;
-}
-
-
-
-/* ==========================================================
-   CRITICAL VISIBILITY FIX - FINAL
-   Wichtig:
-   Nicht jeden .controller.custom sichtbar machen.
-   Sonst sieht man die Disconnected-Ebene, während der echte Controller
-   im Hintergrund schon funktioniert.
-
-   Nur der aktive Controller wird angezeigt.
-   Disconnected wird hart versteckt.
-   ========================================================== */
-
-.controller.custom,
-.controller.ds4 {
-    display: none !important;
-}
-
-.controller.custom.active,
-.controller.ds4.active {
-    display: block !important;
-}
-
-.controller.custom.disconnected,
-.controller.ds4.disconnected {
-    display: none !important;
-}
-
 
 /* ==========================================================
    CONTROLLER BASE
-   WICHTIG:
-   Bei Custom CSS bekommt der Controller die Klasse .custom.
+   Nur optische Effekte, keine Positionen verändern.
    ========================================================== */
 
-.controller.custom,
-.controller.ds4 {
-    background: url("https://gamepadviewer.com/ps4-assets/base.svg") center no-repeat !important;
-    height: 598px !important;
-    width: 806px !important;
-
+.controller.ds4.edit {
     filter:
-        drop-shadow(0 0 10px rgba(168, 85, 247, 0.55))
-        drop-shadow(0 0 24px rgba(168, 85, 247, 0.30)) !important;
-}
-
-/* Disconnected */
-.custom.disconnected,
-.ds4.disconnected {
-    background: url("https://gamepadviewer.com/ps4-assets/disconnected.svg") center no-repeat !important;
-    filter:
-        grayscale(1)
-        opacity(0.65)
-        drop-shadow(0 0 8px rgba(168, 85, 247, 0.25)) !important;
-}
-
-.custom.disconnected div,
-.ds4.disconnected div {
-    display: none;
+        drop-shadow(0 0 8px rgba(168, 85, 247, 0.55))
+        drop-shadow(0 0 20px rgba(168, 85, 247, 0.25)) !important;
 }
 
 
 /* ==========================================================
-   BRANDING TEST
-   Wenn du ATZEOHNE_GLATZE nicht siehst, wird die CSS nicht geladen.
+   BRANDING
+   Wenn du ATZEOHNE_GLATZE siehst, lädt die CSS korrekt.
    ========================================================== */
 
-.controller.custom::before,
-.controller.ds4::before {
+.controller.ds4.edit::before {
     content: "ATZEOHNE_GLATZE";
     position: absolute;
+
     left: 50%;
-    top: -44px;
+    top: -42px;
     transform: translateX(-50%);
 
-    padding: 7px 22px;
+    padding: 6px 20px;
     border-radius: 999px;
 
     font-family: Arial Black, Arial, sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 900;
     letter-spacing: 2px;
 
     color: #ffffff;
+
     background:
         linear-gradient(
             90deg,
-            rgba(49, 17, 79, 0.95),
-            rgba(168, 85, 247, 0.95),
-            rgba(49, 17, 79, 0.95)
+            rgba(35, 12, 56, 0.96),
+            rgba(168, 85, 247, 0.96),
+            rgba(35, 12, 56, 0.96)
         );
 
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.20);
 
     box-shadow:
-        0 0 12px rgba(168, 85, 247, 0.85),
-        0 0 30px rgba(168, 85, 247, 0.45);
+        0 0 10px rgba(168, 85, 247, 0.85),
+        0 0 28px rgba(168, 85, 247, 0.45);
 
     text-shadow:
-        0 0 6px rgba(255, 255, 255, 0.75),
-        0 0 14px rgba(168, 85, 247, 0.9);
+        0 0 5px rgba(255, 255, 255, 0.75),
+        0 0 12px rgba(168, 85, 247, 0.95);
 
-    z-index: 9999;
     pointer-events: none;
+    z-index: 9999;
 }
 
 
 /* ==========================================================
-   PURPLE SKIN OVERLAY
+   SUBTLE PURPLE SKIN OVERLAY
+   Nur Overlay, keine echte Controllerform ersetzen.
    ========================================================== */
 
-.controller.custom::after,
-.controller.ds4::after {
+.controller.ds4.edit::after {
     content: "";
     position: absolute;
 
-    left: 56px;
-    top: 105px;
-    width: 694px;
-    height: 410px;
+    left: 58px;
+    top: 108px;
+    width: 690px;
+    height: 405px;
 
     pointer-events: none;
     z-index: 1;
 
     background:
         radial-gradient(
-            circle at 24% 78%,
-            rgba(168, 85, 247, 0.40) 0%,
-            rgba(168, 85, 247, 0.16) 20%,
+            circle at 25% 78%,
+            rgba(168, 85, 247, 0.32) 0%,
+            rgba(168, 85, 247, 0.13) 22%,
             rgba(168, 85, 247, 0.04) 34%,
             transparent 45%
         ),
 
         radial-gradient(
-            circle at 76% 78%,
-            rgba(168, 85, 247, 0.40) 0%,
-            rgba(168, 85, 247, 0.16) 20%,
+            circle at 75% 78%,
+            rgba(168, 85, 247, 0.32) 0%,
+            rgba(168, 85, 247, 0.13) 22%,
             rgba(168, 85, 247, 0.04) 34%,
             transparent 45%
         ),
 
         linear-gradient(
             90deg,
-            rgba(96, 165, 250, 0.035) 0%,
-            rgba(168, 85, 247, 0.13) 50%,
-            rgba(240, 171, 252, 0.035) 100%
+            rgba(96, 165, 250, 0.025) 0%,
+            rgba(168, 85, 247, 0.10) 50%,
+            rgba(240, 171, 252, 0.025) 100%
         );
 
     border-radius: 70px;
-    opacity: 0.95;
+    opacity: 0.85;
     mix-blend-mode: screen;
 }
 
 
 /* ==========================================================
    LAYER FIX
+   Originalelemente über dem Overlay.
    ========================================================== */
 
-.custom .triggers,
-.custom .bumpers,
-.custom .touchpad,
-.custom .quadrant,
-.custom .meta,
-.custom .arrows,
-.custom .abxy,
-.custom .sticks,
-.custom .dpad,
-.custom .wheels,
-.custom .fstick,
-.ds4 .triggers,
-.ds4 .bumpers,
-.ds4 .touchpad,
-.ds4 .quadrant,
-.ds4 .meta,
-.ds4 .arrows,
-.ds4 .abxy,
-.ds4 .sticks,
-.ds4 .dpad,
-.ds4 .wheels,
-.ds4 .fstick {
-    position: absolute;
+.ds4.edit .triggers,
+.ds4.edit .bumpers,
+.ds4.edit .touchpad,
+.ds4.edit .meta,
+.ds4.edit .arrows,
+.ds4.edit .abxy,
+.ds4.edit .sticks,
+.ds4.edit .dpad,
+.ds4.edit .wheels,
+.ds4.edit .fstick {
     z-index: 10;
 }
 
 
 /* ==========================================================
-   TRIGGERS L2 / R2
+   TOUCHPAD SKIN
+   Originalposition bleibt komplett erhalten.
    ========================================================== */
 
-.custom .triggers,
-.ds4 .triggers {
-    width: 588px;
-    height: 90px;
-    position: absolute;
-    left: 109px;
-}
-
-.custom .trigger,
-.ds4 .trigger {
-    width: 99px;
-    height: 100%;
-    background-image: none !important;
-    opacity: 0;
-
-    background:
-        linear-gradient(
-            180deg,
-            #f3e8ff 0%,
-            #a855f7 48%,
-            #581c87 100%
-        ) !important;
-
-    border-radius: 12px !important;
-
-    box-shadow:
-        0 0 10px rgba(168, 85, 247, 0.75),
-        0 0 22px rgba(168, 85, 247, 0.38) !important;
-
-    mix-blend-mode: screen;
-}
-
-.custom .trigger.left,
-.ds4 .trigger.left {
-    float: left;
-}
-
-.custom .trigger.right,
-.ds4 .trigger.right {
-    float: right;
-}
-
-
-/* Digital trigger buttons, falls vorhanden */
-.custom .trigger-button,
-.ds4 .trigger-button {
-    display: none;
-}
-
-
-/* ==========================================================
-   BUMPERS L1 / R1
-   ========================================================== */
-
-.custom .bumpers,
-.ds4 .bumpers {
-    position: absolute;
-    width: 588px;
-    height: 23px;
-    left: 109px;
-    top: 94px;
-}
-
-.custom .bumper,
-.ds4 .bumper {
-    width: 99px;
-    height: 23px;
-    background: url("https://gamepadviewer.com/ps4-assets/bumper.svg") no-repeat !important;
-    opacity: 0;
-    transition:
-        filter 0.05s linear,
-        opacity 0.05s linear !important;
-}
-
-.custom .bumper.pressed,
-.ds4 .bumper.pressed {
-    opacity: 1 !important;
-
-    filter:
-        brightness(1.45)
-        drop-shadow(0 0 10px #a855f7)
-        drop-shadow(0 0 22px #a855f7) !important;
-}
-
-.custom .bumper.left,
-.ds4 .bumper.left {
-    float: left;
-}
-
-.custom .bumper.right,
-.ds4 .bumper.right {
-    float: right;
-    transform: rotateY(180deg);
-}
-
-
-/* ==========================================================
-   TOUCHPAD
-   ========================================================== */
-
-.custom .touchpad,
-.ds4 .touchpad {
-    width: 262px;
-    height: 151px;
-    position: absolute;
-    left: 272px;
-    top: 122px;
-
+.ds4.edit .touchpad {
     border-radius: 18px !important;
     overflow: visible !important;
 }
 
-.custom .touchpad::before,
-.ds4 .touchpad::before {
+.ds4.edit .touchpad::before {
     content: "";
     position: absolute;
 
@@ -354,23 +181,22 @@ body {
     background:
         linear-gradient(
             135deg,
-            rgba(168, 85, 247, 0.44) 0%,
-            rgba(10, 10, 15, 0.96) 48%,
-            rgba(88, 28, 135, 0.60) 100%
+            rgba(168, 85, 247, 0.40) 0%,
+            rgba(10, 10, 15, 0.92) 48%,
+            rgba(88, 28, 135, 0.54) 100%
         );
 
-    border: 2px solid rgba(168, 85, 247, 0.52);
+    border: 2px solid rgba(168, 85, 247, 0.46);
 
     box-shadow:
-        inset 0 0 14px rgba(255, 255, 255, 0.08),
-        0 0 18px rgba(168, 85, 247, 0.58);
+        inset 0 0 14px rgba(255, 255, 255, 0.07),
+        0 0 16px rgba(168, 85, 247, 0.50);
 
     pointer-events: none;
     z-index: 20;
 }
 
-.custom .touchpad::after,
-.ds4 .touchpad::after {
+.ds4.edit .touchpad::after {
     content: "AG";
     position: absolute;
 
@@ -386,48 +212,45 @@ body {
     color: #c084fc;
 
     text-shadow:
-        0 0 5px rgba(255, 255, 255, 0.85),
-        0 0 14px rgba(168, 85, 247, 1),
-        0 0 26px rgba(168, 85, 247, 0.75);
+        0 0 5px rgba(255, 255, 255, 0.80),
+        0 0 14px rgba(168, 85, 247, 0.95),
+        0 0 24px rgba(168, 85, 247, 0.65);
 
     pointer-events: none;
     z-index: 21;
 }
 
-.custom .touchpad.pressed,
-.ds4 .touchpad.pressed {
+/* GamepadViewer Standard Touchpad Press neutralisieren */
+.ds4.edit .touchpad.pressed {
     background: none !important;
 }
 
-.custom .touchpad.pressed::before,
-.ds4 .touchpad.pressed::before {
+.ds4.edit .touchpad.pressed::before {
     background:
         linear-gradient(
             135deg,
-            rgba(216, 180, 254, 0.75) 0%,
-            rgba(168, 85, 247, 0.88) 48%,
-            rgba(88, 28, 135, 0.85) 100%
+            rgba(216, 180, 254, 0.70) 0%,
+            rgba(168, 85, 247, 0.84) 48%,
+            rgba(88, 28, 135, 0.80) 100%
         );
 
     box-shadow:
-        0 0 24px rgba(168, 85, 247, 1),
-        inset 0 0 18px rgba(255, 255, 255, 0.18);
+        0 0 22px rgba(168, 85, 247, 0.95),
+        inset 0 0 18px rgba(255, 255, 255, 0.16);
 }
 
 
 /* ==========================================================
-   LIGHTBAR / QUADRANT
+   LIGHTBAR
+   Dezent, ohne Controllerlogik zu stören.
    ========================================================== */
 
-.custom .quadrant,
-.ds4 .quadrant {
+.ds4.edit .quadrant {
     display: block !important;
-    position: absolute !important;
     z-index: 11 !important;
 }
 
-.custom .quadrant::before,
-.ds4 .quadrant::before {
+.ds4.edit .quadrant::before {
     content: "";
     position: absolute;
 
@@ -448,255 +271,106 @@ body {
         );
 
     box-shadow:
-        0 0 8px rgba(168, 85, 247, 0.9),
-        0 0 18px rgba(168, 85, 247, 0.45);
+        0 0 8px rgba(168, 85, 247, 0.85),
+        0 0 18px rgba(168, 85, 247, 0.40);
 
     animation: atzeLightbarPulse 3s ease-in-out infinite;
 }
 
 @keyframes atzeLightbarPulse {
     0%, 100% {
-        opacity: 0.75;
+        opacity: 0.72;
         filter: brightness(1);
     }
 
     50% {
         opacity: 1;
-        filter: brightness(1.25);
+        filter: brightness(1.22);
     }
 }
 
 
 /* ==========================================================
-   PS BUTTON / META
-   ========================================================== */
-
-.custom .meta,
-.ds4 .meta {
-    width: 42px;
-    height: 42px;
-    position: absolute;
-    left: 382px;
-    bottom: 216px;
-}
-
-.custom .meta.pressed,
-.ds4 .meta.pressed {
-    background: url("https://gamepadviewer.com/ps4-assets/meta.svg") no-repeat center !important;
-
-    filter:
-        brightness(1.35)
-        drop-shadow(0 0 10px white)
-        drop-shadow(0 0 22px #a855f7) !important;
-}
-
-
-/* ==========================================================
-   SHARE / OPTIONS
-   ========================================================== */
-
-.custom .arrows,
-.ds4 .arrows {
-    position: absolute;
-    width: 352px;
-    height: 46px;
-    top: 142px;
-    left: 227px;
-}
-
-.custom .back,
-.custom .start,
-.ds4 .back,
-.ds4 .start {
-    background: url("https://gamepadviewer.com/ps4-assets/start.svg") no-repeat !important;
-    width: 28px;
-    height: 46px;
-    opacity: 0;
-}
-
-.custom .back.pressed,
-.custom .start.pressed,
-.ds4 .back.pressed,
-.ds4 .start.pressed {
-    opacity: 1 !important;
-
-    filter:
-        brightness(1.45)
-        drop-shadow(0 0 10px #a855f7)
-        drop-shadow(0 0 22px #a855f7) !important;
-}
-
-.custom .back,
-.ds4 .back {
-    float: left;
-}
-
-.custom .start,
-.ds4 .start {
-    float: right;
-    background-position: 28px 0 !important;
-}
-
-
-/* ==========================================================
    FACE BUTTONS
+   DS4 Mapping:
+   .a = Cross / X
+   .b = Circle
+   .x = Square
+   .y = Triangle
    ========================================================== */
 
-.custom .abxy,
-.ds4 .abxy {
-    position: absolute;
-    width: 170px;
-    height: 171px;
-    top: 159px;
-    left: 567px;
-}
-
-.custom .button,
-.ds4 .button {
-    position: absolute;
-    width: 55px;
-    height: 55px;
-    background: url("https://gamepadviewer.com/ps4-assets/face.svg") no-repeat !important;
-
+.ds4.edit .button {
     transition:
         filter 0.05s linear,
         transform 0.05s linear !important;
 }
 
-.custom .button.pressed,
-.ds4 .button.pressed {
+.ds4.edit .button.pressed {
     background-position-y: 55px !important;
-    filter: brightness(1.35) !important;
-}
-
-/* Cross / X */
-.custom .a,
-.ds4 .a {
-    background-position: 0 0 !important;
-    bottom: 0;
-    left: 58px;
-}
-
-/* Circle */
-.custom .b,
-.ds4 .b {
-    background-position: -57px 0 !important;
-    top: 58px;
-    right: 0px;
-}
-
-/* Square */
-.custom .x,
-.ds4 .x {
-    background-position: -113px 0 !important;
-    top: 58px;
-}
-
-/* Triangle */
-.custom .y,
-.ds4 .y {
-    background-position: 55px 0 !important;
-    left: 58px;
+    filter: brightness(1.30) !important;
 }
 
 /* Cross / X = Boost */
-.custom .button.a.pressed,
-.ds4 .button.a.pressed {
+.ds4.edit .button.a.pressed {
     filter:
-        brightness(1.55)
+        brightness(1.50)
         drop-shadow(0 0 10px #60a5fa)
-        drop-shadow(0 0 24px #60a5fa) !important;
+        drop-shadow(0 0 22px #60a5fa) !important;
 }
 
 /* Circle */
-.custom .button.b.pressed,
-.ds4 .button.b.pressed {
+.ds4.edit .button.b.pressed {
     filter:
-        brightness(1.55)
+        brightness(1.50)
         drop-shadow(0 0 10px #fb7185)
-        drop-shadow(0 0 24px #fb7185) !important;
+        drop-shadow(0 0 22px #fb7185) !important;
 }
 
 /* Square */
-.custom .button.x.pressed,
-.ds4 .button.x.pressed {
+.ds4.edit .button.x.pressed {
     filter:
-        brightness(1.55)
+        brightness(1.50)
         drop-shadow(0 0 10px #f0abfc)
-        drop-shadow(0 0 24px #f0abfc) !important;
+        drop-shadow(0 0 22px #f0abfc) !important;
 }
 
 /* Triangle */
-.custom .button.y.pressed,
-.ds4 .button.y.pressed {
+.ds4.edit .button.y.pressed {
     filter:
-        brightness(1.55)
+        brightness(1.50)
         drop-shadow(0 0 10px #5eead4)
-        drop-shadow(0 0 24px #5eead4) !important;
+        drop-shadow(0 0 22px #5eead4) !important;
 }
 
 
 /* ==========================================================
    STICKS
+   Nur Ring/Glow, Original-SVG bleibt.
    ========================================================== */
 
-.custom .sticks,
-.ds4 .sticks {
-    position: absolute;
-    width: 361px;
-    height: 105px;
-    top: 308px;
-    left: 228px;
-}
-
-.custom .stick,
-.ds4 .stick {
-    position: absolute;
-    background: url("https://gamepadviewer.com/ps4-assets/sticks.svg") no-repeat !important;
-    height: 94px;
-    width: 94px;
+.ds4.edit .stick {
     border-radius: 50% !important;
 
     transition:
         filter 0.05s linear,
         box-shadow 0.05s linear !important;
+}
 
+.ds4.edit .stick.left,
+.ds4.edit .stick.right {
     box-shadow:
-        0 0 0 4px rgba(168, 85, 247, 0.45),
-        0 0 16px rgba(168, 85, 247, 0.55) !important;
+        0 0 0 4px rgba(168, 85, 247, 0.38),
+        0 0 14px rgba(168, 85, 247, 0.46) !important;
 }
 
-.custom .stick.pressed.left,
-.ds4 .stick.pressed.left {
-    background-position-x: -96px !important;
-}
-
-.custom .stick.pressed.right,
-.ds4 .stick.pressed.right {
-    background-position-x: -192px !important;
-}
-
-.custom .stick.left,
-.ds4 .stick.left {
-    top: 0;
-    left: 0;
-}
-
-.custom .stick.right,
-.ds4 .stick.right {
-    top: calc(100% - 105px);
-    left: calc(100% - 105px);
-}
-
-.custom .stick.pressed,
-.ds4 .stick.pressed {
+.ds4.edit .stick.pressed {
     filter:
-        brightness(1.22)
-        drop-shadow(0 0 14px rgba(168, 85, 247, 0.95)) !important;
+        brightness(1.18)
+        drop-shadow(0 0 13px rgba(168, 85, 247, 0.90)) !important;
 
     box-shadow:
-        0 0 0 4px rgba(216, 180, 254, 0.60),
-        0 0 22px rgba(168, 85, 247, 0.85) !important;
+        0 0 0 4px rgba(216, 180, 254, 0.55),
+        0 0 20px rgba(168, 85, 247, 0.76) !important;
 }
 
 
@@ -704,174 +378,100 @@ body {
    DPAD
    ========================================================== */
 
-.custom .dpad,
-.ds4 .dpad {
-    position: absolute;
-    width: 125px;
-    height: 126px;
-    top: 181px;
-    left: 92px;
-}
-
-.custom .face,
-.ds4 .face {
-    background: url("https://gamepadviewer.com/ps4-assets/dpad.svg") no-repeat !important;
-    position: absolute;
+.ds4.edit .face {
     transition: filter 0.05s linear !important;
 }
 
-.custom .face.up,
-.custom .face.down,
-.ds4 .face.up,
-.ds4 .face.down {
-    width: 36px;
-    height: 52px;
-}
-
-.custom .face.left,
-.custom .face.right,
-.ds4 .face.left,
-.ds4 .face.right {
-    width: 52px;
-    height: 36px;
-}
-
-.custom .face.up,
-.ds4 .face.up {
-    left: 44px;
-    top: 0;
-    background-position: -37px 0px !important;
-}
-
-.custom .face.down,
-.ds4 .face.down {
-    left: 44px;
-    bottom: 0;
-    background-position: 0px 0 !important;
-}
-
-.custom .face.left,
-.ds4 .face.left {
-    top: 45px;
-    left: 0;
-    background-position: 104px 0 !important;
-}
-
-.custom .face.right,
-.ds4 .face.right {
-    top: 45px;
-    right: 0px;
-    background-position: 52px 0 !important;
-}
-
-.custom .face.pressed,
-.ds4 .face.pressed {
+.ds4.edit .face.pressed {
     background-position-y: 52px !important;
 
     filter:
-        brightness(1.5)
+        brightness(1.45)
         drop-shadow(0 0 10px #a855f7)
-        drop-shadow(0 0 22px #a855f7) !important;
+        drop-shadow(0 0 20px #a855f7) !important;
 }
 
 
 /* ==========================================================
-   HALF MODE
+   L1 / R1
    ========================================================== */
 
-.custom.half,
-.ds4.half {
-    margin-top: -300px;
+.ds4.edit .bumper {
+    transition:
+        filter 0.05s linear,
+        opacity 0.05s linear !important;
+}
+
+.ds4.edit .bumper.pressed {
+    opacity: 1 !important;
+
+    filter:
+        brightness(1.42)
+        drop-shadow(0 0 10px #a855f7)
+        drop-shadow(0 0 20px #a855f7) !important;
 }
 
 
 /* ==========================================================
-   OPTIONAL SCALE
-   OBS kann besser skalieren. Nur bei Bedarf aktivieren.
+   L2 / R2
+   Opacity bleibt GamepadViewer-Logik.
+   ========================================================== */
+
+.ds4.edit .trigger {
+    background-image: none !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f3e8ff 0%,
+            #a855f7 48%,
+            #581c87 100%
+        ) !important;
+
+    border-radius: 12px !important;
+
+    box-shadow:
+        0 0 10px rgba(168, 85, 247, 0.70),
+        0 0 20px rgba(168, 85, 247, 0.35) !important;
+
+    mix-blend-mode: screen;
+}
+
+
+/* ==========================================================
+   SHARE / OPTIONS
+   ========================================================== */
+
+.ds4.edit .back.pressed,
+.ds4.edit .start.pressed {
+    opacity: 1 !important;
+
+    filter:
+        brightness(1.42)
+        drop-shadow(0 0 10px #a855f7)
+        drop-shadow(0 0 20px #a855f7) !important;
+}
+
+
+/* ==========================================================
+   PS BUTTON
+   ========================================================== */
+
+.ds4.edit .meta.pressed {
+    filter:
+        brightness(1.30)
+        drop-shadow(0 0 10px white)
+        drop-shadow(0 0 20px #a855f7) !important;
+}
+
+
+/* ==========================================================
+   OPTIONAL: Branding ausblenden
+   Wenn du den Namen oben nicht willst, diesen Block aktivieren.
    ========================================================== */
 
 /*
-.controller.custom {
-    zoom: 0.85;
+.controller.ds4.edit::before {
+    display: none !important;
 }
 */
-
-
-/* ==========================================================
-   DISCONNECTED OVERLAY KILL SWITCH
-   Falls GamepadViewer trotzdem eine Disconnected-Ebene rendert,
-   wird sie komplett ausgeblendet.
-   ========================================================== */
-
-.controller.disconnected {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-
-/* ==========================================================
-   FINAL DISCONNECTED FIX - FORCE BASE CONTROLLER
-   Wenn dein Controller sich bewegt, aber trotzdem "Disconnected"
-   angezeigt wird, hängt GamepadViewer optisch noch im disconnected
-   background. Deshalb wird der disconnected background hier komplett
-   auf den normalen PS4 Base Controller zurückgesetzt.
-   ========================================================== */
-
-body .controller.custom.disconnected,
-body .controller.ds4.disconnected,
-body .controller.custom.active.disconnected,
-body .controller.ds4.active.disconnected {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-
-    background-image: url("https://gamepadviewer.com/ps4-assets/base.svg") !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-
-    filter:
-        drop-shadow(0 0 10px rgba(168, 85, 247, 0.55))
-        drop-shadow(0 0 24px rgba(168, 85, 247, 0.30)) !important;
-}
-
-/* Default-Regel von GamepadViewer killen:
-   .ds4.disconnected div { display:none; }
-   Wir brauchen die Divs sichtbar, weil dein Controller ja verbunden ist.
-*/
-body .controller.custom.disconnected div,
-body .controller.ds4.disconnected div,
-body .controller.custom.active.disconnected div,
-body .controller.ds4.active.disconnected div {
-    display: block !important;
-}
-
-/* Falls GamepadViewer einen Text/Layer "Disconnected" als Element setzt */
-body .controller.custom.disconnected .disconnected,
-body .controller.ds4.disconnected .disconnected,
-body .controller.custom.active.disconnected .disconnected,
-body .controller.ds4.active.disconnected .disconnected {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-}
-
-/* Branding und Skin auch im disconnected-class Zustand sichtbar lassen */
-body .controller.custom.disconnected::before,
-body .controller.ds4.disconnected::before,
-body .controller.custom.active.disconnected::before,
-body .controller.ds4.active.disconnected::before,
-body .controller.custom.disconnected::after,
-body .controller.ds4.disconnected::after,
-body .controller.custom.active.disconnected::after,
-body .controller.ds4.active.disconnected::after {
-    display: block !important;
-    visibility: visible !important;
-}
-
-/* Falls noch ein grauer Overlay-Layer von GamepadViewer darüber liegt */
-body .controller.custom.disconnected::selection,
-body .controller.ds4.disconnected::selection {
-    background: transparent !important;
-}
