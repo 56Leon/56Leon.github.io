@@ -41,17 +41,29 @@ body {
 
 
 /* ==========================================================
-   CRITICAL VISIBILITY FIX
-   GamepadViewer setzt .controller standardmäßig auf display:none.
-   Bei Custom CSS erzwingen wir deshalb sichtbar.
+   CRITICAL VISIBILITY FIX - FINAL
+   Wichtig:
+   Nicht jeden .controller.custom sichtbar machen.
+   Sonst sieht man die Disconnected-Ebene, während der echte Controller
+   im Hintergrund schon funktioniert.
+
+   Nur der aktive Controller wird angezeigt.
+   Disconnected wird hart versteckt.
    ========================================================== */
 
 .controller.custom,
+.controller.ds4 {
+    display: none !important;
+}
+
 .controller.custom.active,
-.controller.custom.half,
-.controller.ds4,
 .controller.ds4.active {
     display: block !important;
+}
+
+.controller.custom.disconnected,
+.controller.ds4.disconnected {
+    display: none !important;
 }
 
 
@@ -783,3 +795,17 @@ body {
     zoom: 0.85;
 }
 */
+
+
+/* ==========================================================
+   DISCONNECTED OVERLAY KILL SWITCH
+   Falls GamepadViewer trotzdem eine Disconnected-Ebene rendert,
+   wird sie komplett ausgeblendet.
+   ========================================================== */
+
+.controller.disconnected {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
