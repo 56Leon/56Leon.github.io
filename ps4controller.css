@@ -809,3 +809,69 @@ body {
     opacity: 0 !important;
     pointer-events: none !important;
 }
+
+
+/* ==========================================================
+   FINAL DISCONNECTED FIX - FORCE BASE CONTROLLER
+   Wenn dein Controller sich bewegt, aber trotzdem "Disconnected"
+   angezeigt wird, hängt GamepadViewer optisch noch im disconnected
+   background. Deshalb wird der disconnected background hier komplett
+   auf den normalen PS4 Base Controller zurückgesetzt.
+   ========================================================== */
+
+body .controller.custom.disconnected,
+body .controller.ds4.disconnected,
+body .controller.custom.active.disconnected,
+body .controller.ds4.active.disconnected {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    background-image: url("https://gamepadviewer.com/ps4-assets/base.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+
+    filter:
+        drop-shadow(0 0 10px rgba(168, 85, 247, 0.55))
+        drop-shadow(0 0 24px rgba(168, 85, 247, 0.30)) !important;
+}
+
+/* Default-Regel von GamepadViewer killen:
+   .ds4.disconnected div { display:none; }
+   Wir brauchen die Divs sichtbar, weil dein Controller ja verbunden ist.
+*/
+body .controller.custom.disconnected div,
+body .controller.ds4.disconnected div,
+body .controller.custom.active.disconnected div,
+body .controller.ds4.active.disconnected div {
+    display: block !important;
+}
+
+/* Falls GamepadViewer einen Text/Layer "Disconnected" als Element setzt */
+body .controller.custom.disconnected .disconnected,
+body .controller.ds4.disconnected .disconnected,
+body .controller.custom.active.disconnected .disconnected,
+body .controller.ds4.active.disconnected .disconnected {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Branding und Skin auch im disconnected-class Zustand sichtbar lassen */
+body .controller.custom.disconnected::before,
+body .controller.ds4.disconnected::before,
+body .controller.custom.active.disconnected::before,
+body .controller.ds4.active.disconnected::before,
+body .controller.custom.disconnected::after,
+body .controller.ds4.disconnected::after,
+body .controller.custom.active.disconnected::after,
+body .controller.ds4.active.disconnected::after {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Falls noch ein grauer Overlay-Layer von GamepadViewer darüber liegt */
+body .controller.custom.disconnected::selection,
+body .controller.ds4.disconnected::selection {
+    background: transparent !important;
+}
