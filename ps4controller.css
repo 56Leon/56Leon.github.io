@@ -1,17 +1,19 @@
 /* ==========================================================
    ATZEOHNE_GLATZE - GAMEPADVIEWER PS4 EDIT CSS
-   Rocket League Purple Skin - SAFE DESIGN FINAL v8
+   Rocket League Purple Skin - SAFE DESIGN FINAL v10
+   L2/R2 ORIGINAL FIX
 
    NUTZUNG:
    - GamepadViewer Skin: PlayStation 4
    - Diese Datei NUR bei "Edit CSS URL" verwenden
    - "Custom CSS URL" leer lassen
    - URL-Beispiel:
-     https://gamepadviewer.com/?p=1&s=5&nocurve=1&editcss=DEIN_RAW_LINK?v=8
+     https://gamepadviewer.com/?p=1&s=5&nocurve=1&editcss=DEIN_RAW_LINK?v=10
 
    WICHTIG:
    Diese CSS verändert KEINE Controller-Positionen und KEINE Display-Logik.
-   Dadurch bleiben Buttons, Sticks, Trigger und Input sauber funktionsfähig.
+   L2/R2 werden GAR NICHT mehr überschrieben.
+   Dadurch bleiben Trigger, Buttons und Sticks original funktionsfähig.
    ========================================================== */
 
 
@@ -101,7 +103,7 @@ body {
 
 /* ----------------------------------------------------------
    KEIN Controller-Overlay
-   Damit keine helle Box mehr entstehen kann.
+   Damit keine helle Box entstehen kann.
    ---------------------------------------------------------- */
 
 .controller.ds4.edit::after {
@@ -369,37 +371,12 @@ body {
 
 
 /* ----------------------------------------------------------
-   L2 / R2 - FIXED
-   Wichtig:
-   Die originale PS4-Trigger-Grafik bleibt aktiv.
-   Dadurch wird L2/R2 wieder korrekt angezeigt.
-   Wir ändern nur Glow/Farbe über Filter, nicht die Form.
+   L2 / R2
+   WICHTIG:
+   L2/R2 werden ABSICHTLICH NICHT gestylt.
+   Die originale GamepadViewer-Trigger-Grafik bleibt komplett aktiv.
+   Dadurch funktionieren L2/R2 wieder korrekt.
    ---------------------------------------------------------- */
-
-.ds4.edit .trigger {
-    background-image: url(ps4-assets/triggers.svg) !important;
-    background-repeat: no-repeat !important;
-
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    mix-blend-mode: normal !important;
-
-    filter:
-        hue-rotate(248deg)
-        saturate(1.35)
-        brightness(1.18)
-        drop-shadow(0 0 7px rgba(168, 85, 247, 0.55)) !important;
-}
-
-/* Linker Trigger = originale Position */
-.ds4.edit .trigger.left {
-    background-position: 0 0 !important;
-}
-
-/* Rechter Trigger = originale DS4 Sprite-Position */
-.ds4.edit .trigger.right {
-    background-position-x: 99px !important;
-}
 
 
 /* ----------------------------------------------------------
