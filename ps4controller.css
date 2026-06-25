@@ -1,0 +1,785 @@
+/* ==========================================================
+   ATZEOHNE_GLATZE - GAMEPADVIEWER FULL CUSTOM PS4 SKIN
+   Rocket League Purple Fennec Style
+   Version: 2.0 CUSTOM
+
+   WICHTIG:
+   Diese Datei ist für "Custom CSS URL", NICHT für "Edit CSS URL".
+
+   Nutze danach:
+   https://gamepadviewer.com/?p=1&nocurve=1&css=DEIN_RAW_GIST_LINK
+
+   Warum Custom CSS?
+   Wenn Edit CSS bei dir nicht lädt, erzwingen wir hier eine komplette
+   PS4-Skin-CSS über .controller.custom. Die originale Form bleibt trotzdem,
+   weil wir die PS4-Assets von GamepadViewer direkt laden.
+   ========================================================== */
+
+
+/* ==========================================================
+   GLOBAL / OBS CLEANUP
+   ========================================================== */
+
+html,
+body {
+    background: transparent !important;
+    overflow: hidden !important;
+}
+
+.main-content {
+    background: transparent !important;
+}
+
+.navbar,
+.slideout-menu,
+.modal-container,
+.nocon,
+.pselect {
+    display: none !important;
+}
+
+
+
+/* ==========================================================
+   CRITICAL VISIBILITY FIX
+   GamepadViewer setzt .controller standardmäßig auf display:none.
+   Bei Custom CSS erzwingen wir deshalb sichtbar.
+   ========================================================== */
+
+.controller.custom,
+.controller.custom.active,
+.controller.custom.half,
+.controller.ds4,
+.controller.ds4.active {
+    display: block !important;
+}
+
+
+/* ==========================================================
+   CONTROLLER BASE
+   WICHTIG:
+   Bei Custom CSS bekommt der Controller die Klasse .custom.
+   ========================================================== */
+
+.controller.custom,
+.controller.ds4 {
+    background: url("https://gamepadviewer.com/ps4-assets/base.svg") center no-repeat !important;
+    height: 598px !important;
+    width: 806px !important;
+
+    filter:
+        drop-shadow(0 0 10px rgba(168, 85, 247, 0.55))
+        drop-shadow(0 0 24px rgba(168, 85, 247, 0.30)) !important;
+}
+
+/* Disconnected */
+.custom.disconnected,
+.ds4.disconnected {
+    background: url("https://gamepadviewer.com/ps4-assets/disconnected.svg") center no-repeat !important;
+    filter:
+        grayscale(1)
+        opacity(0.65)
+        drop-shadow(0 0 8px rgba(168, 85, 247, 0.25)) !important;
+}
+
+.custom.disconnected div,
+.ds4.disconnected div {
+    display: none;
+}
+
+
+/* ==========================================================
+   BRANDING TEST
+   Wenn du ATZEOHNE_GLATZE nicht siehst, wird die CSS nicht geladen.
+   ========================================================== */
+
+.controller.custom::before,
+.controller.ds4::before {
+    content: "ATZEOHNE_GLATZE";
+    position: absolute;
+    left: 50%;
+    top: -44px;
+    transform: translateX(-50%);
+
+    padding: 7px 22px;
+    border-radius: 999px;
+
+    font-family: Arial Black, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    color: #ffffff;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(49, 17, 79, 0.95),
+            rgba(168, 85, 247, 0.95),
+            rgba(49, 17, 79, 0.95)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 0 12px rgba(168, 85, 247, 0.85),
+        0 0 30px rgba(168, 85, 247, 0.45);
+
+    text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.75),
+        0 0 14px rgba(168, 85, 247, 0.9);
+
+    z-index: 9999;
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   PURPLE SKIN OVERLAY
+   ========================================================== */
+
+.controller.custom::after,
+.controller.ds4::after {
+    content: "";
+    position: absolute;
+
+    left: 56px;
+    top: 105px;
+    width: 694px;
+    height: 410px;
+
+    pointer-events: none;
+    z-index: 1;
+
+    background:
+        radial-gradient(
+            circle at 24% 78%,
+            rgba(168, 85, 247, 0.40) 0%,
+            rgba(168, 85, 247, 0.16) 20%,
+            rgba(168, 85, 247, 0.04) 34%,
+            transparent 45%
+        ),
+
+        radial-gradient(
+            circle at 76% 78%,
+            rgba(168, 85, 247, 0.40) 0%,
+            rgba(168, 85, 247, 0.16) 20%,
+            rgba(168, 85, 247, 0.04) 34%,
+            transparent 45%
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(96, 165, 250, 0.035) 0%,
+            rgba(168, 85, 247, 0.13) 50%,
+            rgba(240, 171, 252, 0.035) 100%
+        );
+
+    border-radius: 70px;
+    opacity: 0.95;
+    mix-blend-mode: screen;
+}
+
+
+/* ==========================================================
+   LAYER FIX
+   ========================================================== */
+
+.custom .triggers,
+.custom .bumpers,
+.custom .touchpad,
+.custom .quadrant,
+.custom .meta,
+.custom .arrows,
+.custom .abxy,
+.custom .sticks,
+.custom .dpad,
+.custom .wheels,
+.custom .fstick,
+.ds4 .triggers,
+.ds4 .bumpers,
+.ds4 .touchpad,
+.ds4 .quadrant,
+.ds4 .meta,
+.ds4 .arrows,
+.ds4 .abxy,
+.ds4 .sticks,
+.ds4 .dpad,
+.ds4 .wheels,
+.ds4 .fstick {
+    position: absolute;
+    z-index: 10;
+}
+
+
+/* ==========================================================
+   TRIGGERS L2 / R2
+   ========================================================== */
+
+.custom .triggers,
+.ds4 .triggers {
+    width: 588px;
+    height: 90px;
+    position: absolute;
+    left: 109px;
+}
+
+.custom .trigger,
+.ds4 .trigger {
+    width: 99px;
+    height: 100%;
+    background-image: none !important;
+    opacity: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f3e8ff 0%,
+            #a855f7 48%,
+            #581c87 100%
+        ) !important;
+
+    border-radius: 12px !important;
+
+    box-shadow:
+        0 0 10px rgba(168, 85, 247, 0.75),
+        0 0 22px rgba(168, 85, 247, 0.38) !important;
+
+    mix-blend-mode: screen;
+}
+
+.custom .trigger.left,
+.ds4 .trigger.left {
+    float: left;
+}
+
+.custom .trigger.right,
+.ds4 .trigger.right {
+    float: right;
+}
+
+
+/* Digital trigger buttons, falls vorhanden */
+.custom .trigger-button,
+.ds4 .trigger-button {
+    display: none;
+}
+
+
+/* ==========================================================
+   BUMPERS L1 / R1
+   ========================================================== */
+
+.custom .bumpers,
+.ds4 .bumpers {
+    position: absolute;
+    width: 588px;
+    height: 23px;
+    left: 109px;
+    top: 94px;
+}
+
+.custom .bumper,
+.ds4 .bumper {
+    width: 99px;
+    height: 23px;
+    background: url("https://gamepadviewer.com/ps4-assets/bumper.svg") no-repeat !important;
+    opacity: 0;
+    transition:
+        filter 0.05s linear,
+        opacity 0.05s linear !important;
+}
+
+.custom .bumper.pressed,
+.ds4 .bumper.pressed {
+    opacity: 1 !important;
+
+    filter:
+        brightness(1.45)
+        drop-shadow(0 0 10px #a855f7)
+        drop-shadow(0 0 22px #a855f7) !important;
+}
+
+.custom .bumper.left,
+.ds4 .bumper.left {
+    float: left;
+}
+
+.custom .bumper.right,
+.ds4 .bumper.right {
+    float: right;
+    transform: rotateY(180deg);
+}
+
+
+/* ==========================================================
+   TOUCHPAD
+   ========================================================== */
+
+.custom .touchpad,
+.ds4 .touchpad {
+    width: 262px;
+    height: 151px;
+    position: absolute;
+    left: 272px;
+    top: 122px;
+
+    border-radius: 18px !important;
+    overflow: visible !important;
+}
+
+.custom .touchpad::before,
+.ds4 .touchpad::before {
+    content: "";
+    position: absolute;
+
+    left: 22px;
+    top: 20px;
+    width: 218px;
+    height: 86px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(168, 85, 247, 0.44) 0%,
+            rgba(10, 10, 15, 0.96) 48%,
+            rgba(88, 28, 135, 0.60) 100%
+        );
+
+    border: 2px solid rgba(168, 85, 247, 0.52);
+
+    box-shadow:
+        inset 0 0 14px rgba(255, 255, 255, 0.08),
+        0 0 18px rgba(168, 85, 247, 0.58);
+
+    pointer-events: none;
+    z-index: 20;
+}
+
+.custom .touchpad::after,
+.ds4 .touchpad::after {
+    content: "AG";
+    position: absolute;
+
+    left: 131px;
+    top: 63px;
+    transform: translate(-50%, -50%);
+
+    font-family: Arial Black, Arial, sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: -2px;
+
+    color: #c084fc;
+
+    text-shadow:
+        0 0 5px rgba(255, 255, 255, 0.85),
+        0 0 14px rgba(168, 85, 247, 1),
+        0 0 26px rgba(168, 85, 247, 0.75);
+
+    pointer-events: none;
+    z-index: 21;
+}
+
+.custom .touchpad.pressed,
+.ds4 .touchpad.pressed {
+    background: none !important;
+}
+
+.custom .touchpad.pressed::before,
+.ds4 .touchpad.pressed::before {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(216, 180, 254, 0.75) 0%,
+            rgba(168, 85, 247, 0.88) 48%,
+            rgba(88, 28, 135, 0.85) 100%
+        );
+
+    box-shadow:
+        0 0 24px rgba(168, 85, 247, 1),
+        inset 0 0 18px rgba(255, 255, 255, 0.18);
+}
+
+
+/* ==========================================================
+   LIGHTBAR / QUADRANT
+   ========================================================== */
+
+.custom .quadrant,
+.ds4 .quadrant {
+    display: block !important;
+    position: absolute !important;
+    z-index: 11 !important;
+}
+
+.custom .quadrant::before,
+.ds4 .quadrant::before {
+    content: "";
+    position: absolute;
+
+    left: 326px;
+    top: 104px;
+    width: 154px;
+    height: 6px;
+
+    border-radius: 999px;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            #60a5fa 0%,
+            #a855f7 50%,
+            #d8b4fe 100%
+        );
+
+    box-shadow:
+        0 0 8px rgba(168, 85, 247, 0.9),
+        0 0 18px rgba(168, 85, 247, 0.45);
+
+    animation: atzeLightbarPulse 3s ease-in-out infinite;
+}
+
+@keyframes atzeLightbarPulse {
+    0%, 100% {
+        opacity: 0.75;
+        filter: brightness(1);
+    }
+
+    50% {
+        opacity: 1;
+        filter: brightness(1.25);
+    }
+}
+
+
+/* ==========================================================
+   PS BUTTON / META
+   ========================================================== */
+
+.custom .meta,
+.ds4 .meta {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 382px;
+    bottom: 216px;
+}
+
+.custom .meta.pressed,
+.ds4 .meta.pressed {
+    background: url("https://gamepadviewer.com/ps4-assets/meta.svg") no-repeat center !important;
+
+    filter:
+        brightness(1.35)
+        drop-shadow(0 0 10px white)
+        drop-shadow(0 0 22px #a855f7) !important;
+}
+
+
+/* ==========================================================
+   SHARE / OPTIONS
+   ========================================================== */
+
+.custom .arrows,
+.ds4 .arrows {
+    position: absolute;
+    width: 352px;
+    height: 46px;
+    top: 142px;
+    left: 227px;
+}
+
+.custom .back,
+.custom .start,
+.ds4 .back,
+.ds4 .start {
+    background: url("https://gamepadviewer.com/ps4-assets/start.svg") no-repeat !important;
+    width: 28px;
+    height: 46px;
+    opacity: 0;
+}
+
+.custom .back.pressed,
+.custom .start.pressed,
+.ds4 .back.pressed,
+.ds4 .start.pressed {
+    opacity: 1 !important;
+
+    filter:
+        brightness(1.45)
+        drop-shadow(0 0 10px #a855f7)
+        drop-shadow(0 0 22px #a855f7) !important;
+}
+
+.custom .back,
+.ds4 .back {
+    float: left;
+}
+
+.custom .start,
+.ds4 .start {
+    float: right;
+    background-position: 28px 0 !important;
+}
+
+
+/* ==========================================================
+   FACE BUTTONS
+   ========================================================== */
+
+.custom .abxy,
+.ds4 .abxy {
+    position: absolute;
+    width: 170px;
+    height: 171px;
+    top: 159px;
+    left: 567px;
+}
+
+.custom .button,
+.ds4 .button {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background: url("https://gamepadviewer.com/ps4-assets/face.svg") no-repeat !important;
+
+    transition:
+        filter 0.05s linear,
+        transform 0.05s linear !important;
+}
+
+.custom .button.pressed,
+.ds4 .button.pressed {
+    background-position-y: 55px !important;
+    filter: brightness(1.35) !important;
+}
+
+/* Cross / X */
+.custom .a,
+.ds4 .a {
+    background-position: 0 0 !important;
+    bottom: 0;
+    left: 58px;
+}
+
+/* Circle */
+.custom .b,
+.ds4 .b {
+    background-position: -57px 0 !important;
+    top: 58px;
+    right: 0px;
+}
+
+/* Square */
+.custom .x,
+.ds4 .x {
+    background-position: -113px 0 !important;
+    top: 58px;
+}
+
+/* Triangle */
+.custom .y,
+.ds4 .y {
+    background-position: 55px 0 !important;
+    left: 58px;
+}
+
+/* Cross / X = Boost */
+.custom .button.a.pressed,
+.ds4 .button.a.pressed {
+    filter:
+        brightness(1.55)
+        drop-shadow(0 0 10px #60a5fa)
+        drop-shadow(0 0 24px #60a5fa) !important;
+}
+
+/* Circle */
+.custom .button.b.pressed,
+.ds4 .button.b.pressed {
+    filter:
+        brightness(1.55)
+        drop-shadow(0 0 10px #fb7185)
+        drop-shadow(0 0 24px #fb7185) !important;
+}
+
+/* Square */
+.custom .button.x.pressed,
+.ds4 .button.x.pressed {
+    filter:
+        brightness(1.55)
+        drop-shadow(0 0 10px #f0abfc)
+        drop-shadow(0 0 24px #f0abfc) !important;
+}
+
+/* Triangle */
+.custom .button.y.pressed,
+.ds4 .button.y.pressed {
+    filter:
+        brightness(1.55)
+        drop-shadow(0 0 10px #5eead4)
+        drop-shadow(0 0 24px #5eead4) !important;
+}
+
+
+/* ==========================================================
+   STICKS
+   ========================================================== */
+
+.custom .sticks,
+.ds4 .sticks {
+    position: absolute;
+    width: 361px;
+    height: 105px;
+    top: 308px;
+    left: 228px;
+}
+
+.custom .stick,
+.ds4 .stick {
+    position: absolute;
+    background: url("https://gamepadviewer.com/ps4-assets/sticks.svg") no-repeat !important;
+    height: 94px;
+    width: 94px;
+    border-radius: 50% !important;
+
+    transition:
+        filter 0.05s linear,
+        box-shadow 0.05s linear !important;
+
+    box-shadow:
+        0 0 0 4px rgba(168, 85, 247, 0.45),
+        0 0 16px rgba(168, 85, 247, 0.55) !important;
+}
+
+.custom .stick.pressed.left,
+.ds4 .stick.pressed.left {
+    background-position-x: -96px !important;
+}
+
+.custom .stick.pressed.right,
+.ds4 .stick.pressed.right {
+    background-position-x: -192px !important;
+}
+
+.custom .stick.left,
+.ds4 .stick.left {
+    top: 0;
+    left: 0;
+}
+
+.custom .stick.right,
+.ds4 .stick.right {
+    top: calc(100% - 105px);
+    left: calc(100% - 105px);
+}
+
+.custom .stick.pressed,
+.ds4 .stick.pressed {
+    filter:
+        brightness(1.22)
+        drop-shadow(0 0 14px rgba(168, 85, 247, 0.95)) !important;
+
+    box-shadow:
+        0 0 0 4px rgba(216, 180, 254, 0.60),
+        0 0 22px rgba(168, 85, 247, 0.85) !important;
+}
+
+
+/* ==========================================================
+   DPAD
+   ========================================================== */
+
+.custom .dpad,
+.ds4 .dpad {
+    position: absolute;
+    width: 125px;
+    height: 126px;
+    top: 181px;
+    left: 92px;
+}
+
+.custom .face,
+.ds4 .face {
+    background: url("https://gamepadviewer.com/ps4-assets/dpad.svg") no-repeat !important;
+    position: absolute;
+    transition: filter 0.05s linear !important;
+}
+
+.custom .face.up,
+.custom .face.down,
+.ds4 .face.up,
+.ds4 .face.down {
+    width: 36px;
+    height: 52px;
+}
+
+.custom .face.left,
+.custom .face.right,
+.ds4 .face.left,
+.ds4 .face.right {
+    width: 52px;
+    height: 36px;
+}
+
+.custom .face.up,
+.ds4 .face.up {
+    left: 44px;
+    top: 0;
+    background-position: -37px 0px !important;
+}
+
+.custom .face.down,
+.ds4 .face.down {
+    left: 44px;
+    bottom: 0;
+    background-position: 0px 0 !important;
+}
+
+.custom .face.left,
+.ds4 .face.left {
+    top: 45px;
+    left: 0;
+    background-position: 104px 0 !important;
+}
+
+.custom .face.right,
+.ds4 .face.right {
+    top: 45px;
+    right: 0px;
+    background-position: 52px 0 !important;
+}
+
+.custom .face.pressed,
+.ds4 .face.pressed {
+    background-position-y: 52px !important;
+
+    filter:
+        brightness(1.5)
+        drop-shadow(0 0 10px #a855f7)
+        drop-shadow(0 0 22px #a855f7) !important;
+}
+
+
+/* ==========================================================
+   HALF MODE
+   ========================================================== */
+
+.custom.half,
+.ds4.half {
+    margin-top: -300px;
+}
+
+
+/* ==========================================================
+   OPTIONAL SCALE
+   OBS kann besser skalieren. Nur bei Bedarf aktivieren.
+   ========================================================== */
+
+/*
+.controller.custom {
+    zoom: 0.85;
+}
+*/
