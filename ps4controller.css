@@ -369,28 +369,36 @@ body {
 
 
 /* ----------------------------------------------------------
-   L2 / R2
-   Nur Farbdesign, Opacity bleibt GamepadViewer-Logik.
+   L2 / R2 - FIXED
+   Wichtig:
+   Die originale PS4-Trigger-Grafik bleibt aktiv.
+   Dadurch wird L2/R2 wieder korrekt angezeigt.
+   Wir ändern nur Glow/Farbe über Filter, nicht die Form.
    ---------------------------------------------------------- */
 
 .ds4.edit .trigger {
-    background-image: none !important;
+    background-image: url(ps4-assets/triggers.svg) !important;
+    background-repeat: no-repeat !important;
 
-    background:
-        linear-gradient(
-            180deg,
-            #f3e8ff 0%,
-            #a855f7 48%,
-            #581c87 100%
-        ) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    mix-blend-mode: normal !important;
 
-    border-radius: 12px !important;
+    filter:
+        hue-rotate(248deg)
+        saturate(1.35)
+        brightness(1.18)
+        drop-shadow(0 0 7px rgba(168, 85, 247, 0.55)) !important;
+}
 
-    box-shadow:
-        0 0 7px rgba(168, 85, 247, 0.55),
-        0 0 12px rgba(168, 85, 247, 0.20) !important;
+/* Linker Trigger = originale Position */
+.ds4.edit .trigger.left {
+    background-position: 0 0 !important;
+}
 
-    mix-blend-mode: screen;
+/* Rechter Trigger = originale DS4 Sprite-Position */
+.ds4.edit .trigger.right {
+    background-position-x: 99px !important;
 }
 
 
