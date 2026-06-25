@@ -1,22 +1,27 @@
 /* ==========================================================
    ATZEOHNE_GLATZE - GAMEPADVIEWER PS4 EDIT CSS
-   Rocket League Purple Skin - HARD RESET NO BOX
-   Version: 6.0
+   INPUT SAFE VERSION
+   Version: 7.0
 
    BENUTZUNG:
-   GamepadViewer -> PlayStation 4 -> Edit CSS URL
-   NICHT Custom CSS URL
+   - GamepadViewer Skin: PlayStation 4
+   - Nur in "Edit CSS URL" einfügen
+   - NICHT Custom CSS URL
+   - URL:
+     https://gamepadviewer.com/?p=1&s=5&nocurve=1&editcss=DEIN_RAW_LINK?v=7
 
-   Link:
-   https://gamepadviewer.com/?p=1&s=5&nocurve=1&editcss=DEIN_RAW_LINK?v=6
-
-   Diese Version entfernt ALLE großen Pseudo-Overlays/Boxen hart.
+   Diese Version verändert KEINE GamepadViewer-Logik:
+   - kein display:block/display:none auf Controller
+   - kein disconnected-div-Fix
+   - keine custom-Klasse
+   - keine Positionen überschreiben
+   Dadurch bleiben Sticks und Buttons funktionsfähig.
    ========================================================== */
 
 
-/* ==========================================================
-   GLOBAL
-   ========================================================== */
+/* ----------------------------------------------------------
+   OBS / Hintergrund
+   ---------------------------------------------------------- */
 
 html,
 body {
@@ -28,156 +33,80 @@ body {
     background: transparent !important;
 }
 
-.navbar,
-.slideout-menu,
-.modal-container,
-.nocon,
-.pselect {
-    display: none !important;
+
+/* ----------------------------------------------------------
+   Controller nur optisch stylen
+   ---------------------------------------------------------- */
+
+.controller.ds4.edit {
+    filter:
+        drop-shadow(0 0 8px rgba(168, 85, 247, 0.42))
+        drop-shadow(0 0 18px rgba(168, 85, 247, 0.18)) !important;
 }
 
 
-/* ==========================================================
-   HARD RESET: ALTE BOXEN / OVERLAYS KILLEN
-   Das ist der wichtigste Teil.
-   ========================================================== */
+/* ----------------------------------------------------------
+   WICHTIG: alte große Boxen entfernen
+   Aber ohne Controller-Display oder Input-Elemente anzufassen.
+   ---------------------------------------------------------- */
 
-body .controller.ds4::after,
-body .controller.ds4.edit::after,
-body .controller.edit.ds4::after,
-body .ds4.edit::after,
-body .controller.ds4.disconnected::after,
-body .controller.ds4.edit.disconnected::after,
-body .controller.edit.ds4.disconnected::after,
-body .ds4.edit.disconnected::after {
+.controller.ds4.edit::after {
     content: none !important;
     display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
     background: none !important;
-    background-image: none !important;
     box-shadow: none !important;
     filter: none !important;
-    mix-blend-mode: normal !important;
-}
-
-/* Falls der Kasten vom disconnected background kommt:
-   normalen PS4 Base Controller erzwingen. */
-body .controller.ds4.disconnected,
-body .controller.ds4.edit.disconnected,
-body .controller.edit.ds4.disconnected,
-body .ds4.edit.disconnected {
-    background: url("https://gamepadviewer.com/ps4-assets/base.svg") center no-repeat !important;
-    background-image: url("https://gamepadviewer.com/ps4-assets/base.svg") !important;
-    background-color: transparent !important;
-
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-/* GamepadViewer Standard killen:
-   .ds4.disconnected div { display:none; } */
-body .controller.ds4.disconnected div,
-body .controller.ds4.edit.disconnected div,
-body .controller.edit.ds4.disconnected div,
-body .ds4.edit.disconnected div {
-    display: block !important;
-}
-
-/* Falls der Disconnected Text als Layer existiert */
-body .controller .disconnected,
-body .controller .disconnect,
-body .controller [data-name="disconnected"],
-body .controller [data-name="disconnect"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
 }
 
 
-/* ==========================================================
-   CONTROLLER BASE
-   Nur dezenter Glow, keine Box.
-   ========================================================== */
+/* ----------------------------------------------------------
+   Name oben
+   ---------------------------------------------------------- */
 
-body .controller.ds4.edit,
-body .controller.edit.ds4,
-body .ds4.edit {
-    filter:
-        drop-shadow(0 0 6px rgba(168, 85, 247, 0.38))
-        drop-shadow(0 0 14px rgba(168, 85, 247, 0.16)) !important;
-}
+.controller.ds4.edit::before {
+    content: "ATZEOHNE_GLATZE";
+    position: absolute;
 
+    left: 50%;
+    top: -42px;
+    transform: translateX(-50%);
 
-/* ==========================================================
-   BRANDING OBEN
-   ========================================================== */
+    padding: 6px 20px;
+    border-radius: 999px;
 
-body .controller.ds4.edit::before,
-body .controller.edit.ds4::before,
-body .ds4.edit::before {
-    content: "ATZEOHNE_GLATZE" !important;
-    position: absolute !important;
+    font-family: Arial Black, Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: 2px;
 
-    left: 50% !important;
-    top: -42px !important;
-    transform: translateX(-50%) !important;
-
-    padding: 6px 20px !important;
-    border-radius: 999px !important;
-
-    font-family: Arial Black, Arial, sans-serif !important;
-    font-size: 17px !important;
-    font-weight: 900 !important;
-    letter-spacing: 2px !important;
-
-    color: #ffffff !important;
+    color: #ffffff;
 
     background:
         linear-gradient(
             90deg,
-            rgba(35, 12, 56, 0.96),
-            rgba(168, 85, 247, 0.96),
-            rgba(35, 12, 56, 0.96)
-        ) !important;
+            rgba(35, 12, 56, 0.95),
+            rgba(168, 85, 247, 0.95),
+            rgba(35, 12, 56, 0.95)
+        );
 
-    border: 1px solid rgba(255, 255, 255, 0.20) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 
     box-shadow:
-        0 0 8px rgba(168, 85, 247, 0.70),
-        0 0 20px rgba(168, 85, 247, 0.30) !important;
+        0 0 9px rgba(168, 85, 247, 0.70),
+        0 0 22px rgba(168, 85, 247, 0.28);
 
     text-shadow:
-        0 0 5px rgba(255, 255, 255, 0.65),
-        0 0 10px rgba(168, 85, 247, 0.80) !important;
+        0 0 5px rgba(255, 255, 255, 0.70),
+        0 0 11px rgba(168, 85, 247, 0.85);
 
-    pointer-events: none !important;
-    z-index: 9999 !important;
+    pointer-events: none;
+    z-index: 9999;
 }
 
 
-/* ==========================================================
-   ELEMENT LAYER
-   ========================================================== */
-
-.ds4.edit .triggers,
-.ds4.edit .bumpers,
-.ds4.edit .touchpad,
-.ds4.edit .meta,
-.ds4.edit .arrows,
-.ds4.edit .abxy,
-.ds4.edit .sticks,
-.ds4.edit .dpad,
-.ds4.edit .wheels,
-.ds4.edit .fstick {
-    z-index: 10 !important;
-}
-
-
-/* ==========================================================
-   TOUCHPAD
-   ========================================================== */
+/* ----------------------------------------------------------
+   Touchpad Skin
+   ---------------------------------------------------------- */
 
 .ds4.edit .touchpad {
     border-radius: 18px !important;
@@ -214,11 +143,7 @@ body .ds4.edit::before {
 }
 
 .ds4.edit .touchpad::after {
-    content: "AG" !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-
+    content: "AG";
     position: absolute;
 
     left: 131px;
@@ -260,13 +185,12 @@ body .ds4.edit::before {
 }
 
 
-/* ==========================================================
-   LIGHTBAR
-   ========================================================== */
+/* ----------------------------------------------------------
+   Lightbar klein
+   ---------------------------------------------------------- */
 
 .ds4.edit .quadrant {
     display: block !important;
-    z-index: 11 !important;
 }
 
 .ds4.edit .quadrant::before {
@@ -309,9 +233,9 @@ body .ds4.edit::before {
 }
 
 
-/* ==========================================================
-   FACE BUTTONS
-   ========================================================== */
+/* ----------------------------------------------------------
+   Buttons
+   ---------------------------------------------------------- */
 
 .ds4.edit .button {
     transition:
@@ -353,9 +277,9 @@ body .ds4.edit::before {
 }
 
 
-/* ==========================================================
-   STICKS
-   ========================================================== */
+/* ----------------------------------------------------------
+   Sticks
+   ---------------------------------------------------------- */
 
 .ds4.edit .stick {
     border-radius: 50% !important;
@@ -383,9 +307,9 @@ body .ds4.edit::before {
 }
 
 
-/* ==========================================================
-   DPAD
-   ========================================================== */
+/* ----------------------------------------------------------
+   D-Pad
+   ---------------------------------------------------------- */
 
 .ds4.edit .face {
     transition: filter 0.05s linear !important;
@@ -401,9 +325,9 @@ body .ds4.edit::before {
 }
 
 
-/* ==========================================================
+/* ----------------------------------------------------------
    L1 / R1
-   ========================================================== */
+   ---------------------------------------------------------- */
 
 .ds4.edit .bumper {
     transition:
@@ -421,9 +345,9 @@ body .ds4.edit::before {
 }
 
 
-/* ==========================================================
+/* ----------------------------------------------------------
    L2 / R2
-   ========================================================== */
+   ---------------------------------------------------------- */
 
 .ds4.edit .trigger {
     background-image: none !important;
@@ -446,9 +370,9 @@ body .ds4.edit::before {
 }
 
 
-/* ==========================================================
-   SHARE / OPTIONS
-   ========================================================== */
+/* ----------------------------------------------------------
+   Share / Options
+   ---------------------------------------------------------- */
 
 .ds4.edit .back.pressed,
 .ds4.edit .start.pressed {
@@ -461,9 +385,9 @@ body .ds4.edit::before {
 }
 
 
-/* ==========================================================
-   PS BUTTON
-   ========================================================== */
+/* ----------------------------------------------------------
+   PS Button
+   ---------------------------------------------------------- */
 
 .ds4.edit .meta.pressed {
     filter:
@@ -473,14 +397,12 @@ body .ds4.edit::before {
 }
 
 
-/* ==========================================================
-   OPTIONAL: NAME OBEN AUSBLENDEN
-   ========================================================== */
+/* ----------------------------------------------------------
+   Optional: Name oben ausblenden
+   ---------------------------------------------------------- */
 
 /*
-body .controller.ds4.edit::before,
-body .controller.edit.ds4::before,
-body .ds4.edit::before {
+.controller.ds4.edit::before {
     display: none !important;
 }
 */
