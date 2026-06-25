@@ -1,26 +1,22 @@
 /* ==========================================================
    ATZEOHNE_GLATZE - GAMEPADVIEWER PS4 EDIT CSS
-   INPUT SAFE VERSION
-   Version: 7.0
+   Rocket League Purple Skin - SAFE DESIGN FINAL v8
 
-   BENUTZUNG:
+   NUTZUNG:
    - GamepadViewer Skin: PlayStation 4
-   - Nur in "Edit CSS URL" einfügen
-   - NICHT Custom CSS URL
-   - URL:
-     https://gamepadviewer.com/?p=1&s=5&nocurve=1&editcss=DEIN_RAW_LINK?v=7
+   - Diese Datei NUR bei "Edit CSS URL" verwenden
+   - "Custom CSS URL" leer lassen
+   - URL-Beispiel:
+     https://gamepadviewer.com/?p=1&s=5&nocurve=1&editcss=DEIN_RAW_LINK?v=8
 
-   Diese Version verändert KEINE GamepadViewer-Logik:
-   - kein display:block/display:none auf Controller
-   - kein disconnected-div-Fix
-   - keine custom-Klasse
-   - keine Positionen überschreiben
-   Dadurch bleiben Sticks und Buttons funktionsfähig.
+   WICHTIG:
+   Diese CSS verändert KEINE Controller-Positionen und KEINE Display-Logik.
+   Dadurch bleiben Buttons, Sticks, Trigger und Input sauber funktionsfähig.
    ========================================================== */
 
 
 /* ----------------------------------------------------------
-   OBS / Hintergrund
+   OBS / Hintergrund sauber
    ---------------------------------------------------------- */
 
 html,
@@ -33,34 +29,31 @@ body {
     background: transparent !important;
 }
 
+/* Website-Menüs ausblenden, falls sie im OBS sichtbar sind */
+.navbar,
+.slideout-menu,
+.modal-container,
+.nocon,
+.pselect {
+    display: none !important;
+}
+
 
 /* ----------------------------------------------------------
-   Controller nur optisch stylen
+   Controller Grundlook
+   Keine Größe, keine Position, kein display überschreiben.
    ---------------------------------------------------------- */
 
 .controller.ds4.edit {
     filter:
-        drop-shadow(0 0 8px rgba(168, 85, 247, 0.42))
-        drop-shadow(0 0 18px rgba(168, 85, 247, 0.18)) !important;
+        drop-shadow(0 0 7px rgba(168, 85, 247, 0.45))
+        drop-shadow(0 0 18px rgba(168, 85, 247, 0.22)) !important;
 }
 
 
 /* ----------------------------------------------------------
-   WICHTIG: alte große Boxen entfernen
-   Aber ohne Controller-Display oder Input-Elemente anzufassen.
-   ---------------------------------------------------------- */
-
-.controller.ds4.edit::after {
-    content: none !important;
-    display: none !important;
-    background: none !important;
-    box-shadow: none !important;
-    filter: none !important;
-}
-
-
-/* ----------------------------------------------------------
-   Name oben
+   Branding oben
+   Keine große Box, nur kleines Label.
    ---------------------------------------------------------- */
 
 .controller.ds4.edit::before {
@@ -84,20 +77,22 @@ body {
     background:
         linear-gradient(
             90deg,
-            rgba(35, 12, 56, 0.95),
-            rgba(168, 85, 247, 0.95),
-            rgba(35, 12, 56, 0.95)
+            rgba(24, 10, 38, 0.96),
+            rgba(126, 34, 206, 0.94),
+            rgba(168, 85, 247, 0.96),
+            rgba(126, 34, 206, 0.94),
+            rgba(24, 10, 38, 0.96)
         );
 
     border: 1px solid rgba(255, 255, 255, 0.18);
 
     box-shadow:
-        0 0 9px rgba(168, 85, 247, 0.70),
-        0 0 22px rgba(168, 85, 247, 0.28);
+        0 0 8px rgba(168, 85, 247, 0.80),
+        0 0 22px rgba(168, 85, 247, 0.36);
 
     text-shadow:
-        0 0 5px rgba(255, 255, 255, 0.70),
-        0 0 11px rgba(168, 85, 247, 0.85);
+        0 0 5px rgba(255, 255, 255, 0.72),
+        0 0 10px rgba(168, 85, 247, 0.88);
 
     pointer-events: none;
     z-index: 9999;
@@ -105,7 +100,21 @@ body {
 
 
 /* ----------------------------------------------------------
+   KEIN Controller-Overlay
+   Damit keine helle Box mehr entstehen kann.
+   ---------------------------------------------------------- */
+
+.controller.ds4.edit::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+
+/* ----------------------------------------------------------
    Touchpad Skin
+   Originalposition bleibt erhalten.
    ---------------------------------------------------------- */
 
 .ds4.edit .touchpad {
@@ -113,6 +122,7 @@ body {
     overflow: visible !important;
 }
 
+/* Touchpad Hintergrund */
 .ds4.edit .touchpad::before {
     content: "";
     position: absolute;
@@ -127,21 +137,22 @@ body {
     background:
         linear-gradient(
             135deg,
-            rgba(168, 85, 247, 0.30) 0%,
-            rgba(10, 10, 15, 0.94) 48%,
-            rgba(88, 28, 135, 0.40) 100%
+            rgba(168, 85, 247, 0.32) 0%,
+            rgba(9, 9, 14, 0.96) 48%,
+            rgba(88, 28, 135, 0.44) 100%
         );
 
-    border: 2px solid rgba(168, 85, 247, 0.38);
+    border: 2px solid rgba(168, 85, 247, 0.40);
 
     box-shadow:
-        inset 0 0 11px rgba(255, 255, 255, 0.05),
-        0 0 10px rgba(168, 85, 247, 0.32);
+        inset 0 0 12px rgba(255, 255, 255, 0.06),
+        0 0 12px rgba(168, 85, 247, 0.38);
 
     pointer-events: none;
     z-index: 20;
 }
 
+/* AG Logo */
 .ds4.edit .touchpad::after {
     content: "AG";
     position: absolute;
@@ -158,14 +169,15 @@ body {
     color: #c084fc;
 
     text-shadow:
-        0 0 4px rgba(255, 255, 255, 0.60),
-        0 0 10px rgba(168, 85, 247, 0.75),
-        0 0 18px rgba(168, 85, 247, 0.38);
+        0 0 4px rgba(255, 255, 255, 0.62),
+        0 0 10px rgba(168, 85, 247, 0.82),
+        0 0 18px rgba(168, 85, 247, 0.42);
 
     pointer-events: none;
     z-index: 21;
 }
 
+/* Touchpad gedrückt */
 .ds4.edit .touchpad.pressed {
     background: none !important;
 }
@@ -175,8 +187,8 @@ body {
         linear-gradient(
             135deg,
             rgba(216, 180, 254, 0.58) 0%,
-            rgba(168, 85, 247, 0.72) 48%,
-            rgba(88, 28, 135, 0.64) 100%
+            rgba(168, 85, 247, 0.74) 48%,
+            rgba(88, 28, 135, 0.66) 100%
         );
 
     box-shadow:
@@ -186,7 +198,8 @@ body {
 
 
 /* ----------------------------------------------------------
-   Lightbar klein
+   Lightbar
+   Kleiner Akzent oben, ohne große Fläche.
    ---------------------------------------------------------- */
 
 .ds4.edit .quadrant {
@@ -214,15 +227,15 @@ body {
         );
 
     box-shadow:
-        0 0 6px rgba(168, 85, 247, 0.65),
-        0 0 12px rgba(168, 85, 247, 0.24);
+        0 0 6px rgba(168, 85, 247, 0.68),
+        0 0 12px rgba(168, 85, 247, 0.26);
 
     animation: atzeLightbarPulse 3s ease-in-out infinite;
 }
 
 @keyframes atzeLightbarPulse {
     0%, 100% {
-        opacity: 0.68;
+        opacity: 0.70;
         filter: brightness(1);
     }
 
@@ -234,7 +247,12 @@ body {
 
 
 /* ----------------------------------------------------------
-   Buttons
+   Face Buttons
+   DS4 Mapping:
+   .a = Cross / X
+   .b = Circle
+   .x = Square
+   .y = Triangle
    ---------------------------------------------------------- */
 
 .ds4.edit .button {
@@ -245,9 +263,10 @@ body {
 
 .ds4.edit .button.pressed {
     background-position-y: 55px !important;
-    filter: brightness(1.25) !important;
+    filter: brightness(1.24) !important;
 }
 
+/* X / Cross = Boost */
 .ds4.edit .button.a.pressed {
     filter:
         brightness(1.42)
@@ -255,6 +274,7 @@ body {
         drop-shadow(0 0 16px #60a5fa) !important;
 }
 
+/* Circle */
 .ds4.edit .button.b.pressed {
     filter:
         brightness(1.42)
@@ -262,6 +282,7 @@ body {
         drop-shadow(0 0 16px #fb7185) !important;
 }
 
+/* Square */
 .ds4.edit .button.x.pressed {
     filter:
         brightness(1.42)
@@ -269,6 +290,7 @@ body {
         drop-shadow(0 0 16px #f0abfc) !important;
 }
 
+/* Triangle */
 .ds4.edit .button.y.pressed {
     filter:
         brightness(1.42)
@@ -279,6 +301,7 @@ body {
 
 /* ----------------------------------------------------------
    Sticks
+   Nur Glow/Ring, keine Positionen.
    ---------------------------------------------------------- */
 
 .ds4.edit .stick {
@@ -347,6 +370,7 @@ body {
 
 /* ----------------------------------------------------------
    L2 / R2
+   Nur Farbdesign, Opacity bleibt GamepadViewer-Logik.
    ---------------------------------------------------------- */
 
 .ds4.edit .trigger {
