@@ -403,10 +403,13 @@
   </g>
 
   <g id="atze-purple-skin" pointer-events="none">
+    <!-- subtle purple body wash -->
+    <path d="M82 376 C126 342 182 343 225 386 C250 411 263 448 251 487 C226 548 169 585 109 558 C63 538 45 488 56 440 C64 412 70 392 82 376Z" fill="url(#atzePurple)" opacity="0.10"/>
+    <path d="M724 376 C680 342 624 343 581 386 C556 411 543 448 555 487 C580 548 637 585 697 558 C743 538 761 488 750 440 C742 412 736 392 724 376Z" fill="url(#atzePurple)" opacity="0.10"/>
 
     <!-- carbon grip overlays -->
-    <path d="M62 473 C74 522 107 566 155 578 C103 588 54 552 43 503 C37 475 42 447 54 421 C56 437 58 455 62 473Z" fill="url(#atzeCarbon)" opacity="0.18"/>
-    <path d="M744 473 C732 522 699 566 651 578 C703 588 752 552 763 503 C769 475 764 447 752 421 C750 437 748 455 744 473Z" fill="url(#atzeCarbon)" opacity="0.18"/>
+    <path d="M62 473 C74 522 107 566 155 578 C103 588 54 552 43 503 C37 475 42 447 54 421 C56 437 58 455 62 473Z" fill="url(#atzeCarbon)" opacity="0.32"/>
+    <path d="M744 473 C732 522 699 566 651 578 C703 588 752 552 763 503 C769 475 764 447 752 421 C750 437 748 455 744 473Z" fill="url(#atzeCarbon)" opacity="0.32"/>
 
     <!-- purple skin stripes -->
     <path d="M122 432 L156 397 L171 410 L135 456Z" fill="url(#atzePurple)" opacity="0.82" filter="url(#atzeGlow)"/>
