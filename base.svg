@@ -403,36 +403,25 @@
   </g>
 
   <g id="atze-purple-skin" pointer-events="none">
-    <!-- subtle purple body wash -->
-    <path d="M82 376 C126 342 182 343 225 386 C250 411 263 448 251 487 C226 548 169 585 109 558 C63 538 45 488 56 440 C64 412 70 392 82 376Z" fill="url(#atzePurple)" opacity="0.10"/>
-    <path d="M724 376 C680 342 624 343 581 386 C556 411 543 448 555 487 C580 548 637 585 697 558 C743 538 761 488 750 440 C742 412 736 392 724 376Z" fill="url(#atzePurple)" opacity="0.10"/>
-
-    <!-- carbon grip overlays -->
-    <path d="M62 473 C74 522 107 566 155 578 C103 588 54 552 43 503 C37 475 42 447 54 421 C56 437 58 455 62 473Z" fill="url(#atzeCarbon)" opacity="0.32"/>
-    <path d="M744 473 C732 522 699 566 651 578 C703 588 752 552 763 503 C769 475 764 447 752 421 C750 437 748 455 744 473Z" fill="url(#atzeCarbon)" opacity="0.32"/>
-
-    <!-- purple skin stripes -->
+    <!-- clean purple grip stripes -->
     <path d="M122 432 L156 397 L171 410 L135 456Z" fill="url(#atzePurple)" opacity="0.82" filter="url(#atzeGlow)"/>
     <path d="M139 472 L190 414 L204 428 L154 501Z" fill="url(#atzePurple)" opacity="0.62" filter="url(#atzeGlow)"/>
     <path d="M684 432 L650 397 L635 410 L671 456Z" fill="url(#atzePurple)" opacity="0.82" filter="url(#atzeGlow)"/>
     <path d="M667 472 L616 414 L602 428 L652 501Z" fill="url(#atzePurple)" opacity="0.62" filter="url(#atzeGlow)"/>
 
-    <!-- touchpad skin panel -->
-    <rect x="292" y="143" width="222" height="88" rx="16" fill="url(#atzeTouch)" stroke="#a855f7" stroke-width="2" opacity="0.72" filter="url(#atzeGlow)"/>
-    <path d="M314 205 L369 160 L399 160 L344 211Z" fill="url(#atzePurple)" opacity="0.58"/>
-    <path d="M340 216 L430 152 L464 152 L382 219Z" fill="url(#atzePurple)" opacity="0.28"/>
-    <text x="404" y="201" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="42" font-weight="900" fill="#c084fc" filter="url(#atzeGlow)">AG</text>
-    <text x="403" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="900" letter-spacing="1.6" fill="#f5f3ff" opacity="0.85">ATZEOHNE_GLATZE</text>
+    <!-- integrated touchpad art -->
+    <rect x="294" y="145" width="218" height="84" rx="15" fill="url(#atzeTouch)" stroke="#a855f7" stroke-width="2" opacity="0.76" filter="url(#atzeGlow)"/>
+    <path d="M318 204 L370 162 L396 162 L344 210Z" fill="url(#atzePurple)" opacity="0.55"/>
+    <path d="M343 214 L426 154 L458 154 L380 217Z" fill="url(#atzePurple)" opacity="0.25"/>
+    <text x="404" y="201" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="40" font-weight="900" fill="#c084fc" filter="url(#atzeGlow)">AG</text>
+    <text x="403" y="219" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="900" letter-spacing="1.6" fill="#f5f3ff" opacity="0.85">ATZEOHNE_GLATZE</text>
 
-    <!-- lightbar -->
+    <!-- small lightbar accent -->
     <rect x="330" y="111" width="146" height="5" rx="2.5" fill="url(#atzePurple)" filter="url(#atzeGlow)" opacity="0.86"/>
 
-    <!-- stick accent rings -->
+    <!-- clean stick accent rings -->
     <circle cx="275" cy="355" r="49" fill="none" stroke="#a855f7" stroke-width="4" opacity="0.58" filter="url(#atzeGlow)"/>
     <circle cx="531" cy="355" r="49" fill="none" stroke="#a855f7" stroke-width="4" opacity="0.58" filter="url(#atzeGlow)"/>
-
-    <!-- small bottom accent -->
-    <rect x="365" y="421" width="76" height="5" rx="2.5" fill="url(#atzePurple)" opacity="0.64" filter="url(#atzeGlow)"/>
   </g>
 
 </svg>
