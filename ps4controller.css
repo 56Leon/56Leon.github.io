@@ -1,6 +1,6 @@
 /* ==========================================================
    ATZEOHNE_GLATZE - FULL PS4 ASSET SKIN FOR GAMEPADVIEWER
-   Version: Full Assets v4 Refined
+   Version: Full Assets v5 Touchpad Fixed
 
    Upload these files together in the SAME GitHub folder:
    - rocketleague-controller.css
@@ -13,7 +13,7 @@
    - triggers.svg
 
    Use this as EDIT CSS URL:
-   https://gamepadviewer.com/?p=1&s=5&nocurve=1&editcss=YOUR_RAW_CSS_LINK?v=assets4
+   https://gamepadviewer.com/?p=1&s=5&nocurve=1&editcss=YOUR_RAW_CSS_LINK?v=assets5
 
    Do NOT use Custom CSS URL.
    ========================================================== */
@@ -142,4 +142,29 @@ body {
 .controller.ds4.edit::after {
     content: none !important;
     display: none !important;
+}
+
+
+/* --- v5 hard touchpad fix --- */
+/* GamepadViewer setzt beim Drücken die Klasse .touchpad.pressed und lädt ps4-assets/touchpad.svg.
+   Genau diese weiße Fläche schalten wir hier hart ab. */
+.ds4 .touchpad.pressed,
+.controller.ds4 .touchpad.pressed,
+.controller.ds4.edit .touchpad.pressed,
+.ds4.edit .touchpad.pressed {
+    background: transparent !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+/* Touchpad generell transparent lassen, damit nur das Design aus base.svg sichtbar ist */
+.ds4 .touchpad,
+.controller.ds4 .touchpad,
+.controller.ds4.edit .touchpad,
+.ds4.edit .touchpad {
+    background: transparent !important;
+    background-image: none !important;
+    background-color: transparent !important;
 }
