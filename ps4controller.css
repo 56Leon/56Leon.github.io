@@ -1,6 +1,6 @@
 /* ==========================================================
    ATZEOHNE_GLATZE - FULL PS4 ASSET SKIN FOR GAMEPADVIEWER
-   Version: Full Assets v1
+   Version: Full Assets v4 Refined
 
    Upload these files together in the SAME GitHub folder:
    - rocketleague-controller.css
@@ -13,7 +13,7 @@
    - triggers.svg
 
    Use this as EDIT CSS URL:
-   https://gamepadviewer.com/?p=1&s=5&nocurve=1&editcss=YOUR_RAW_CSS_LINK?v=assets1
+   https://gamepadviewer.com/?p=1&s=5&nocurve=1&editcss=YOUR_RAW_CSS_LINK?v=assets4
 
    Do NOT use Custom CSS URL.
    ========================================================== */
@@ -116,6 +116,28 @@ body {
 }
 
 /* Optional: hide all old pseudo-labels from previous versions if browser cached any */
+.controller.ds4.edit::before,
+.controller.ds4.edit::after {
+    content: none !important;
+    display: none !important;
+}
+
+
+/* --- v4 refined fixes --- */
+/* The white area when pressing the touchpad comes from GamepadViewer's default touchpad press styling.
+   We disable that so the custom touchpad artwork in base.svg stays visible. */
+.ds4.edit .touchpad,
+.ds4.edit .touchpad.pressed {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+}
+
+/* Prevent any old pseudo-overlays from previous CSS versions */
+.ds4.edit .touchpad::before,
+.ds4.edit .touchpad::after,
 .controller.ds4.edit::before,
 .controller.ds4.edit::after {
     content: none !important;
